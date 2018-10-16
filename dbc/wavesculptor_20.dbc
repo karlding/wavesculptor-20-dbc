@@ -1,0 +1,134 @@
+VERSION ""
+
+
+NS_ :
+    NS_DESC_
+    CM_
+    BA_DEF_
+    BA_
+    VAL_
+    CAT_DEF_
+    CAT_
+    FILTER
+    BA_DEF_DEF_
+    EV_DATA_
+    ENVVAR_DATA_
+    SGTYPE_
+    SGTYPE_VAL_
+    BA_DEF_SGTYPE_
+    BA_SGTYPE_
+    SIG_TYPE_REF_
+    VAL_TABLE_
+    SIG_GROUP_
+    SIG_VALTYPE_
+    SIGTYPE_VALTYPE_
+    BO_TX_BU_
+    BA_DEF_REL_
+    BA_REL_
+    BA_DEF_DEF_REL_
+    BU_SG_REL_
+    BU_EV_REL_
+    BU_BO_REL_
+    SG_MUL_VAL_
+
+BS_: 
+BU_: WaveSculptor20 
+BO_ 1024 IDInfo: 8 WaveSculptor20
+   SG_ TritiumID : 0|32@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ SerialNumber : 0|32@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1025 Status: 8 WaveSculptor20
+   SG_ LimitFlags : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ ErrorFlags : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+   SG_ ActiveMotor : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1026 BusMeasurement: 8 WaveSculptor20
+   SG_ BusVoltage : 7|32@2- (1,0) [0|0] "V" Vector__XXX
+   SG_ BusCurrent : 39|32@2- (1,0) [0|0] "A" Vector__XXX
+
+BO_ 1027 VelocityMeasurement: 8 WaveSculptor20
+   SG_ VehicleVelocity : 39|32@2- (1,0) [0|0] "rpm" Vector__XXX
+   SG_ MotorVelocity : 7|32@2- (1,0) [0|0] "m/s" Vector__XXX
+
+BO_ 1028 PhaseCurrentMeasurement: 8 WaveSculptor20
+   SG_ PhaseCurrentB : 7|32@2- (1,0) [0|0] "A_rms" Vector__XXX
+   SG_ PhaseCurrentA : 39|32@2- (1,0) [0|0] "A_rms" Vector__XXX
+
+BO_ 1029 MotorVoltageVectorMeasurement: 8 WaveSculptor20
+   SG_ Vq : 0|32@2- (1,0) [0|0] "V" Vector__XXX
+   SG_ Vd : 32|32@2- (1,0) [0|0] "V" Vector__XXX
+
+BO_ 1030 MotorCurrentVectorMeasurement: 8 WaveSculptor20
+   SG_ Iq : 7|32@2- (1,0) [0|0] "A" Vector__XXX
+   SG_ Id : 39|32@2- (1,0) [0|0] "A" Vector__XXX
+
+BO_ 1031 MotorBackEMFMeasurementPrediction: 8 WaveSculptor20
+   SG_ BEMFq : 7|32@2- (1,0) [0|0] "V" Vector__XXX
+   SG_ BEMFd : 39|32@2- (1,0) [0|0] "V" Vector__XXX
+
+BO_ 1032 PowerRailMeasurement: 8 WaveSculptor20
+   SG_ AnalogRef : 7|32@2- (1,0) [0|0] "V" Vector__XXX
+   SG_ PowerRail : 39|32@2- (1,0) [0|0] "V" Vector__XXX
+
+BO_ 1033 ControllerRailMeasurement: 8 WaveSculptor20
+   SG_ DSPVoltage : 7|32@2- (1,0) [0|0] "V" Vector__XXX
+   SG_ FPGAVoltage : 39|32@2- (1,0) [0|0] "V" Vector__XXX
+
+BO_ 1040 FanSpeedMeasurement: 8 WaveSculptor20
+   SG_ VoltagePercentage : 7|32@2- (1,0) [0|0] "V" Vector__XXX
+   SG_ FanSpeed : 39|32@2- (1,0) [0|0] "rpm" Vector__XXX
+
+BO_ 1041 SinkMotorTempMeasurement: 8 WaveSculptor20
+   SG_ MotorTemp : 7|32@2- (1,0) [0|0] "C" Vector__XXX
+   SG_ HeatsinkTemp : 39|32@2- (1,0) [0|0] "C" Vector__XXX
+
+BO_ 1042 AirInCpuTempMeasurement: 8 WaveSculptor20
+   SG_ ProcessorTemp : 7|32@2- (1,0) [0|0] "C" Vector__XXX
+   SG_ AirInletTemp : 39|32@2- (1,0) [0|0] "C" Vector__XXX
+
+BO_ 1043 AirOutCapTempMeasurement: 8 WaveSculptor20
+   SG_ CapacitorTemp : 7|32@2- (1,0) [0|0] "C" Vector__XXX
+   SG_ AirOutTemp : 39|32@2- (1,0) [0|0] "C" Vector__XXX
+
+BO_ 1044 OdometerBusAhMeasurement: 8 WaveSculptor20
+   SG_ Odometer : 7|32@2- (1,0) [0|0] "m" Vector__XXX
+   SG_ DCBus : 39|32@2- (1,0) [0|0] "Ah" Vector__XXX
+
+BA_DEF_ BO_ "GenMsgBackgroundColor" STRING ;
+BA_DEF_ BO_ "GenMsgForegroundColor" STRING ;
+BA_DEF_ BO_ "isj1939dbc" INT 0 0;
+BA_ "GenMsgBackgroundColor" BO_ 1024 "#ffffff";
+BA_ "GenMsgForegroundColor" BO_ 1024 "#000000";
+BA_ "GenMsgBackgroundColor" BO_ 1025 "#ffffff";
+BA_ "GenMsgBackgroundColor" BO_ 1026 "#ffffff";
+BA_ "GenMsgBackgroundColor" BO_ 1027 "#ffffff";
+BA_ "GenMsgBackgroundColor" BO_ 1028 "#ffffff";
+BA_ "GenMsgBackgroundColor" BO_ 1029 "#ffffff";
+BA_ "GenMsgForegroundColor" BO_ 1029 "#000000";
+BA_ "GenMsgBackgroundColor" BO_ 1030 "#ffffff";
+BA_DEF_DEF_ "GenMsgBackgroundColor" "#ffffff";
+BA_DEF_DEF_ "GenMsgForegroundColor" "#000000";
+BA_DEF_DEF_ "isj1939dbc" 0;
+CM_ BU_ WaveSculptor20 "Right motor controller (base address 0x400)";
+CM_ BO_ 1024 "Interval: 1 s";
+CM_ SG_ 1024 TritiumID "Device_serial_number,_allocated_at_manufacture";
+CM_ SG_ 1024 SerialNumber ""TRIa"_stored_as_a_string._msg[0]_=_'T',_msg[1]_=_'R'...";
+CM_ BO_ 1025 "Interval: 200 ms";
+CM_ SG_ 1025 ActiveMotor "The_index_of_the_motor_currently_being_used._Driver_controls_could_use_this_to_check_against_a_switch_position_or_to_display_to_the_driver_if_desired";
+CM_ BO_ 1026 "Interval: 200 ms";
+CM_ SG_ 1026 BusVoltage "DC_bus_voltage_at_the_controller";
+CM_ SG_ 1026 BusCurrent "Current_drawn_from_the_DC_bus_by_the_controller";
+CM_ BO_ 1027 "Interval: 200 ms";
+CM_ BO_ 1028 "Interval: 200 ms";
+CM_ BO_ 1029 "Interval: 200 ms";
+CM_ BO_ 1030 "Interval: 200 ms";
+CM_ SG_ 1030 Iq "Imaginary_component_of_the_applied_non-rotating_current_vector_to_the_motor._This_current_produces_torque_in_the_motor_and_should_be_in_phase_with_the_back-EMF_of_the_motor.";
+CM_ SG_ 1030 Id "Real_component_of_the_applied_non-rotating_current_vector_to_the_motor._This_vector_represents_the_field_current_of_the_motor.";
+CM_ BO_ 1031 "Interval: 200 ms";
+CM_ BO_ 1032 "Interval: 1 s";
+CM_ BO_ 1033 "Interval: 1 s";
+CM_ BO_ 1040 "Interval: 1 s";
+CM_ BO_ 1041 "Interval: 1 s";
+CM_ BO_ 1042 "Interval: 5 s";
+CM_ BO_ 1043 "Interval: 5 s";
+CM_ BO_ 1044 "Interval: 1 s";
