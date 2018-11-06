@@ -74,23 +74,23 @@ BO_ 1033 ControllerRailMeasurement: 8 WaveSculptor20
    SG_ DSPVoltage : 0|32@2- (1,0) [0|0] "V" Vector__XXX
    SG_ FPGAVoltage : 32|32@2- (1,0) [0|0] "V" Vector__XXX
 
-BO_ 1040 FanSpeedMeasurement: 8 WaveSculptor20
+BO_ 1034 FanSpeedMeasurement: 8 WaveSculptor20
    SG_ VoltagePercentage : 0|32@2- (1,0) [0|0] "V" Vector__XXX
    SG_ FanSpeed : 32|32@2- (1,0) [0|0] "rpm" Vector__XXX
 
-BO_ 1041 SinkMotorTempMeasurement: 8 WaveSculptor20
+BO_ 1035 SinkMotorTempMeasurement: 8 WaveSculptor20
    SG_ MotorTemp : 0|32@2- (1,0) [0|0] "C" Vector__XXX
    SG_ HeatsinkTemp : 32|32@2- (1,0) [0|0] "C" Vector__XXX
 
-BO_ 1042 AirInCpuTempMeasurement: 8 WaveSculptor20
+BO_ 1036 AirInCpuTempMeasurement: 8 WaveSculptor20
    SG_ ProcessorTemp : 0|32@2- (1,0) [0|0] "C" Vector__XXX
    SG_ AirInletTemp : 32|32@2- (1,0) [0|0] "C" Vector__XXX
 
-BO_ 1043 AirOutCapTempMeasurement: 8 WaveSculptor20
+BO_ 1037 AirOutCapTempMeasurement: 8 WaveSculptor20
    SG_ CapacitorTemp : 0|32@2- (1,0) [0|0] "C" Vector__XXX
    SG_ AirOutTemp : 32|32@2- (1,0) [0|0] "C" Vector__XXX
 
-BO_ 1044 OdometerBusAhMeasurement: 8 WaveSculptor20
+BO_ 1038 OdometerBusAhMeasurement: 8 WaveSculptor20
    SG_ Odometer : 0|32@2- (1,0) [0|0] "m" Vector__XXX
    SG_ DCBus : 32|32@2- (1,0) [0|0] "Ah" Vector__XXX
 
