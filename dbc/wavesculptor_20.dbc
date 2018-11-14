@@ -42,8 +42,8 @@ BO_ 1026 BusMeasurement: 8 WaveSculptor20
  SG_ BusCurrent : 32|32@1- (1,0) [0|0] "A" Vector__XXX
 
 BO_ 1027 VelocityMeasurement: 8 WaveSculptor20
- SG_ VehicleVelocity : 0|32@1- (1,0) [0|0] "rpm" Vector__XXX
- SG_ MotorVelocity : 32|32@1- (1,0) [0|0] "m/s" Vector__XXX
+ SG_ MotorVelocity : 0|32@1- (1,0) [0|0] "rpm" Vector__XXX
+ SG_ VehicleVelocity : 32|32@1- (1,0) [0|0] "m/s" Vector__XXX
 
 BO_ 1028 PhaseCurrentMeasurement: 8 WaveSculptor20
  SG_ PhaseCurrentB : 0|32@1- (1,0) [0|0] "A_rms" Vector__XXX
@@ -57,17 +57,17 @@ BO_ 1030 MotorCurrentVectorMeasurement: 8 WaveSculptor20
  SG_ Iq : 0|32@1- (1,0) [0|0] "A" Vector__XXX
  SG_ Id : 32|32@1- (1,0) [0|0] "A" Vector__XXX
 
-BO_ 1031 MotorBackEMFMeasurementPrediction: 8 WaveSculptor20
+BO_ 1031 MotorBackEmfMeasurementPrediction: 8 WaveSculptor20
  SG_ BEMFq : 0|32@1- (1,0) [0|0] "V" Vector__XXX
  SG_ BEMFd : 32|32@1- (1,0) [0|0] "V" Vector__XXX
 
-BO_ 1032 PowerRailMeasurement: 8 WaveSculptor20
- SG_ AnalogRef : 0|32@1- (1,0) [0|0] "V" Vector__XXX
- SG_ PowerRail : 32|32@1- (1,0) [0|0] "V" Vector__XXX
+BO_ 1032 VoltageRail15V1V65Measurement: 8 WaveSculptor20
+ SG_ Reference1V65 : 0|32@1- (1,0) [0|0] "V" Vector__XXX
+ SG_ Supply15V : 32|32@1- (1,0) [0|0] "V" Vector__XXX
 
-BO_ 1033 ControllerRailMeasurement: 8 WaveSculptor20
- SG_ DSPVoltage : 0|32@1- (1,0) [0|0] "V" Vector__XXX
- SG_ FPGAVoltage : 32|32@1- (1,0) [0|0] "V" Vector__XXX
+BO_ 1033 VoltageRail2V51V2Measurement: 8 WaveSculptor20
+ SG_ Supply2V5 : 32|32@1- (1,0) [0|0] "V" Vector__XXX
+ SG_ Supply1V2 : 0|32@1- (1,0) [0|0] "V" Vector__XXX
 
 BO_ 1034 FanSpeedMeasurement: 8 WaveSculptor20
  SG_ VoltagePercentage : 0|32@1- (1,0) [0|0] "%" Vector__XXX
@@ -100,8 +100,8 @@ CM_ BO_ 1026 "";
 CM_ SG_ 1026 BusVoltage "DC bus voltage at the controller.";
 CM_ SG_ 1026 BusCurrent "Current drawn from the DC bus by the controller.";
 CM_ BO_ 1027 "";
-CM_ SG_ 1027 VehicleVelocity "Vehicle velocity in metres / second.";
-CM_ SG_ 1027 MotorVelocity "Motor angular frequency in revolutions per minute.";
+CM_ SG_ 1027 MotorVelocity "Vehicle velocity in metres / second.";
+CM_ SG_ 1027 VehicleVelocity "Motor angular frequency in revolutions per minute.";
 CM_ BO_ 1028 "";
 CM_ SG_ 1028 PhaseCurrentB "RMS current in motor Phase B. ";
 CM_ SG_ 1028 PhaseCurrentA "RMS current in motor Phase A.";
@@ -115,11 +115,11 @@ CM_ BO_ 1031 "";
 CM_ SG_ 1031 BEMFq "The peak of the phase to neutral motor voltage.";
 CM_ SG_ 1031 BEMFd "By definition this value is always 0V.";
 CM_ BO_ 1032 "";
-CM_ SG_ 1032 AnalogRef "Actual voltage level of the 15V power rail.";
-CM_ SG_ 1032 PowerRail "Actual voltage level of the 1.65V analog reference.";
+CM_ SG_ 1032 Reference1V65 "Actual voltage level of the 1.65V analog reference.";
+CM_ SG_ 1032 Supply15V "Actual voltage level of the 15V power rail.";
 CM_ BO_ 1033 "";
-CM_ SG_ 1033 DSPVoltage "Actual voltage level of the 2.5V FPGA power rail.";
-CM_ SG_ 1033 FPGAVoltage "Actual voltage level of the 1.2V DSP power rail.";
+CM_ SG_ 1033 Supply2V5 "Actual voltage level of the 2.5V FPGA power rail.";
+CM_ SG_ 1033 Supply1V2 "Actual voltage level of the 1.2V DSP power rail.";
 CM_ SG_ 1034 VoltagePercentage "Drive voltage percentage to cooling fan. If this value is above 0%, then the fan should be spinning.";
 CM_ SG_ 1034 FanSpeed "Cooling fan speed in revolutions per minute.";
 CM_ SG_ 1035 MotorTemp "Internal temperature of the motor.";
@@ -131,6 +131,7 @@ CM_ SG_ 1037 AirOutTemp "Ambient air temperature at the ventilation outlet of th
 CM_ SG_ 1038 Odometer "The distance the vehicle has travelled since reset";
 CM_ SG_ 1038 DCBus "The charge flow into the controller bus voltage from the time of reset.";
 BA_DEF_ BO_  "GenMsgCycleTime" INT 2 50000;
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
 BA_ "GenMsgCycleTime" BO_ 1024 1000;
 BA_ "GenMsgCycleTime" BO_ 1025 200;
 BA_ "GenMsgCycleTime" BO_ 1026 200;
@@ -148,8 +149,8 @@ BA_ "GenMsgCycleTime" BO_ 1037 5000;
 BA_ "GenMsgCycleTime" BO_ 1038 1000;
 SIG_VALTYPE_ 1026 BusVoltage : 1;
 SIG_VALTYPE_ 1026 BusCurrent : 1;
-SIG_VALTYPE_ 1027 VehicleVelocity : 1;
 SIG_VALTYPE_ 1027 MotorVelocity : 1;
+SIG_VALTYPE_ 1027 VehicleVelocity : 1;
 SIG_VALTYPE_ 1028 PhaseCurrentB : 1;
 SIG_VALTYPE_ 1028 PhaseCurrentA : 1;
 SIG_VALTYPE_ 1029 Vq : 1;
@@ -158,10 +159,10 @@ SIG_VALTYPE_ 1030 Iq : 1;
 SIG_VALTYPE_ 1030 Id : 1;
 SIG_VALTYPE_ 1031 BEMFq : 1;
 SIG_VALTYPE_ 1031 BEMFd : 1;
-SIG_VALTYPE_ 1032 AnalogRef : 1;
-SIG_VALTYPE_ 1032 PowerRail : 1;
-SIG_VALTYPE_ 1033 DSPVoltage : 1;
-SIG_VALTYPE_ 1033 FPGAVoltage : 1;
+SIG_VALTYPE_ 1032 Reference1V65 : 1;
+SIG_VALTYPE_ 1032 Supply15V : 1;
+SIG_VALTYPE_ 1033 Supply2V5 : 1;
+SIG_VALTYPE_ 1033 Supply1V2 : 1;
 SIG_VALTYPE_ 1034 VoltagePercentage : 1;
 SIG_VALTYPE_ 1034 FanSpeed : 1;
 SIG_VALTYPE_ 1035 MotorTemp : 1;
