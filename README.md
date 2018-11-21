@@ -1,19 +1,20 @@
 # Tritium WaveSculptor 20 CAN DBC
 
+[![Build Status](https://travis-ci.org/karlding/wavesculptor-20-dbc.svg?branch=master)](https://travis-ci.org/karlding/wavesculptor-20-dbc)
+
 A CAN DBC file for the Tritium WaveSculptor 20 motor controller.
 
 *Note*: This assumes that your motor controller has a base address of `0x400`.
-If this is not the case, just edit the addresses to match. I recommend using
-[SavvyCAN](https://github.com/collin80/SavvyCAN).
-
-[ ] Figure out why SavvyCAN doesn't seem to generate DBCs compatible with cantools
+If this is not the case, just edit the addresses to match your configuration.
+[Kvaser Database Editor](https://www.kvaser.com/downloads-kvaser/) is a pretty
+good option for a free DBC GUI editor.
 
 ## Requirements
 
 These instructions use [eerimoq/cantools](https://github.com/eerimoq/cantools)
-to decode messages using the DBC. If you're using PCAN-Explorer or something
-similar, feel free to ignore those steps/requirements and directly import the
-DBC.
+over SocketCAN to decode messages with the DBC. If you're using PCAN-Explorer
+or something similar, feel free to ignore those steps/requirements and
+directly import the DBC.
 
 ```
 # Ensure that can-utils is installed
@@ -37,6 +38,6 @@ pip install cantools
 # View the DBC file
 cantools dump dbc/wavesculptor_20.dbc
 
-# Decode Tritium messages using the DBC
+# Decode CAN messages with the DBC
 candump slcan0 | cantools decode --single-line dbc/wavesculptor_20.dbc
 ```
