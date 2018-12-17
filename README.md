@@ -4,10 +4,24 @@
 
 A CAN DBC file for the Tritium WaveSculptor 20 motor controller.
 
-*Note*: This assumes that your motor controller has a base address of `0x400`.
-If this is not the case, just edit the addresses to match your configuration.
+**Note**: This assumes that your motor controller has a base address of 
+`0x80` (the Device Identifier `0x4` shifted left by `5`). If this is not the
+case, just edit the addresses to match your configuration.
 [Kvaser Database Editor](https://www.kvaser.com/downloads-kvaser/) is a pretty
 good option for a free DBC GUI editor.
+
+The CAN Frame ID format (using 11-bit CAN IDs) is as follows:
+
+```
++---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+| x | x | x | x | x | d | d | d | d | d | d | m | m | m | m | m |
++---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+ 0xf 0xe 0xd 0xc 0xb 0xa 0x9 0x8 0x7 0x6 0x5 0x4 0x3 0x2 0x1 0x0
+
+m = Message ID
+d = Device ID
+x = unused
+```
 
 ## Requirements
 
