@@ -30,7 +30,7 @@ over SocketCAN to decode messages with the DBC. If you're using PCAN-Explorer
 or something similar, feel free to ignore those steps/requirements and
 directly import the DBC.
 
-```
+```bash
 # Ensure that can-utils is installed
 sudo apt-get update
 sudo apt-get install can-utils
@@ -48,10 +48,35 @@ pip install cantools
 
 ## Usage
 
-```
+```bash
 # View the DBC file
 cantools dump dbc/wavesculptor_20.dbc
 
 # Decode CAN messages with the DBC
 candump slcan0 | cantools decode --single-line dbc/wavesculptor_20.dbc
+```
+
+I've included a demo with some data collected using `candump`.
+
+```bash
+# Load kernel modules and stuff
+sudo modprobe can
+sudo modprobe can_raw
+sudo modprobe vcan
+
+# Bring up vcan interface
+sudo ip link add dev vcan0 type vcan
+sudo ip link set up vcan0
+
+# Check to make sure we can see the interface
+ip link show vcan0
+
+# Replay data out on vcan0
+canplayer -I examples/candump-2019-01-09_224207.log vcan0=slcan0
+
+# Decode the data
+candump vcan0 | cantools decode --single-line dbc/wavesculptor_20.dbc
+
+# Or we can monitor the data
+cantools monitor --single-line dbc/wavesculptor_20.dbc
 ```

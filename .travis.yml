@@ -12,6 +12,8 @@ branches:
 before_script:
   # eerimoq/cantools
   - pip install cantools
+  - sudo apt-get update -q
+  - sudo apt-get install -y can-utils
 
 # TODO: It might be nice to set up a testing framework, where we log stuff from
 # the Tritium WaveSculptor 20 via candump, and then pipe that data into the
@@ -21,3 +23,5 @@ before_script:
 # For now, we're just testing that we can properly read and decode the DBC.
 script:
   - cantools dump dbc/wavesculptor_20.dbc
+  # Just demo the output is what we would expect
+  - ./tests/test.sh
