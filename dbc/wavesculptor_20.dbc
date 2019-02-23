@@ -33,9 +33,21 @@ BO_ 128 IDInfo: 8 WaveSculptor20
  SG_ SerialNumber : 32|32@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 129 Status: 8 WaveSculptor20
- SG_ LimitFlags : 0|16@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ErrorFlags : 16|16@1+ (1,0) [0|0] "" Vector__XXX
  SG_ ActiveMotor : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ErrorFlagHWOvercurrent : 16|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ErrorFlagSWOvercurrent : 17|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ErrorFlagDCBusOvervoltage : 18|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ErrorFlagMotorPositionHallSequence : 19|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ErrorFlagWatchdog : 20|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ErrorFlagConfigRead : 21|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ErrorFlag15VUndervoltage : 22|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LimitFlagBridgePWM : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LimitFlagMotorCurrent : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LimitFlagVelocity : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LimitFlagBusCurrent : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LimitFlagBusVoltageUpperLimit : 4|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LimitFlagBusVoltageLowerLimit : 5|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LimitFlagHeatsinkTemperature : 6|1@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 130 BusMeasurement: 8 WaveSculptor20
  SG_ BusVoltage : 0|32@1- (1,0) [0|0] "V" Vector__XXX
@@ -96,6 +108,20 @@ CM_ SG_ 128 TritiumID "Device serial number, allocated at manufacture.";
 CM_ SG_ 128 SerialNumber "TRIa stored as a string";
 CM_ BO_ 129 "";
 CM_ SG_ 129 ActiveMotor "The index of the motor currently being used. Driver controls could use this to check against a switch position or to display to the driver if desired.";
+CM_ SG_ 129 ErrorFlagHWOvercurrent "Hardware over current";
+CM_ SG_ 129 ErrorFlagSWOvercurrent "Software over current";
+CM_ SG_ 129 ErrorFlagDCBusOvervoltage "DC Bus over voltage";
+CM_ SG_ 129 ErrorFlagMotorPositionHallSequence "Bad motor position hall sequence";
+CM_ SG_ 129 ErrorFlagWatchdog "Watchdog caused last reset";
+CM_ SG_ 129 ErrorFlagConfigRead "Config read error (some values may be reset to defaults) ";
+CM_ SG_ 129 ErrorFlag15VUndervoltage "A 15V rail under voltage lock out occurred";
+CM_ SG_ 129 LimitFlagBridgePWM "Bridge PWM";
+CM_ SG_ 129 LimitFlagMotorCurrent "Motor Current";
+CM_ SG_ 129 LimitFlagVelocity "Velocity";
+CM_ SG_ 129 LimitFlagBusCurrent "Bus Current";
+CM_ SG_ 129 LimitFlagBusVoltageUpperLimit "Bus Voltage Upper Limit";
+CM_ SG_ 129 LimitFlagBusVoltageLowerLimit "Bus Voltage Lower Limit";
+CM_ SG_ 129 LimitFlagHeatsinkTemperature "Heatsink Temperature";
 CM_ BO_ 130 "";
 CM_ SG_ 130 BusVoltage "DC bus voltage at the controller.";
 CM_ SG_ 130 BusCurrent "Current drawn from the DC bus by the controller.";
